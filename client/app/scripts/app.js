@@ -10,14 +10,18 @@
  */
 angular
   .module('clientApp', [
-    'ngRoute'
+    'ngRoute',
+    'restangular'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, RestangularProvider) {
+    
+    RestangularProvider.setBaseUrl('http://localhost:3000');
+    
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
-        controllerAs: 'main'
+        //controllerAs: 'main'
       })
       .when('/schedule', {
         templateUrl: 'views/schedule.html',
@@ -29,7 +33,38 @@ angular
         //controller: 'ScheduleCtrl'
         //controllerAs: 'schedule'
       })
+      .when('/create/schedule', {
+        templateUrl: 'views/schedule-add.html',
+        controller: 'ScheduleAddCtrl'
+        //controllerAs: 'scheduleAdd'
+      })
+      .when('/schedule/:id', {
+        templateUrl: 'views/schedule-view.html',
+        controller: 'ScheduleViewCtrl'
+        //controllerAs: 'scheduleView'
+      })
+      .when('/schedule/:id/delete', {
+        templateUrl: 'views/schedule-delete.html',
+        controller: 'ScheduleDeleteCtrl'
+        //controllerAs: 'scheduleDelete'
+      })
+      .when('/schedule/:id/edit', {
+        templateUrl: 'views/schedule-edit.html',
+        controller: 'ScheduleEditCtrl'
+        //controllerAs: 'scheduleEdit'
+      })
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+
+    .factory('ScheduleRestangular', function(Restangular) {
+    return Restangular.withConfig(function(RestangularConfigurer) {
+        RestangularConfigurer.setRestangularFields({
+        id: '_id'
+        });
+    });
+    })
+    .factory('Schedule', function(ScheduleRestangular) {
+    return ScheduleRestangular.service('schedule');
+    });

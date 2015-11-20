@@ -8,19 +8,6 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('ScheduleCtrl', function ($scope) {
-    $scope.schedules = [
-    {
-      name: 'Luvish',
-      machine: 'k5'
-    },
-    {
-      name: 'Katyal',
-      machine: 'k3'
-    },
-    {
-      name: 'Test',
-      machine: 'k7'
-    }
-  ];
+  .controller('ScheduleCtrl', function ($scope, Schedule) {
+    $scope.schedules = Schedule.getList().$object;
 });

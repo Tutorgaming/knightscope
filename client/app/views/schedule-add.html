@@ -1,0 +1,11 @@
+<form role="form">
+  <div class="form-group">
+    <label for="name" class="control-label">Name</label>
+    <input type="text" ng-model="schedule.name" class="form-control" id="name" placeholder="Enter your name">
+  </div>
+  <div class="form-group">
+    <label for="machine" class="control-label">Machine</label>
+    <input type="text" ng-model="schedule.machine" class="form-control" id="machine" placeholder="Enter the Machine name">
+  </div>
+  <input type="submit" class="btn btn-primary" ng-click="saveSchedule()" value="Save">
+</form>
