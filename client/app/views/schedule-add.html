@@ -1,20 +1,59 @@
-<form role="form">
+<h4><span style="color:red">All fields are required!</span></h4>
+<form role="form" name="loginForm" novalidate>
   <div class="form-group">
     <label for="name" class="control-label">Name</label>
-    <input type="text" ng-model="schedule.name" class="form-control" id="name" placeholder="Enter your name">
-  </div>
+    <input type="text" name="name" ng-model="schedule.name" required>
+  <span style="color:red" ng-show="loginForm.name.$dirty && loginForm.name.$invalid && loginForm.name.$error.required">
+      Username is required
+      </span>
+    </div>
   <div class="form-group">
     <label for="machine" class="control-label">Machine</label>
-    <input type="text" ng-model="schedule.machine" class="form-control" id="machine" placeholder="Enter the machine name">
+    <select name="machine" id="machine" ng-model="schedule.machine">
+      <option value="k1">K1</option>
+      <option value="k3">K3</option>
+      <option value="k5" selected>K5</option>
+      <option value="k7">K7</option>
+      <option value="k9">K9</option>
+    </select>
   </div>
   <div class="form-group">
     <label for="location" class="control-label">Location</label>
-    <input type="text" ng-model="schedule.location" class="form-control" id="location" placeholder="Enter the location">
+    <select name="location" id="location" ng-model="schedule.location">
+      <option value="Mountain View" selected>Mountain View</option>
+      <option value="Palo Alto">Palo Alto</option>
+      <option value="Sunnyvale">Sunnyvale</option>
+      <option value="Cupertino">Cupertino</option>
+      <option value="San Jose">San Jose</option>
+    </select>
   </div>
   <div class="form-group">
     <label for="purpose" class="control-label">Purpose</label>
-    <input type="text" ng-model="schedule.purpose" class="form-control" id="purpose" placeholder="Enter the purpose">
+    <select name="purpose" id="purpose" ng-model="schedule.purpose">
+      <option value="Patrolling" selected>Patrolling</option>
+      <option value="On-site Maintenance">On-site Maintenance</option>
+      <option value="Off-site Maintenance">Off-site Maintenance</option>
+      <option value="Demonstration">Demonstration</option>
+      <option value="Transportation">Transportation</option>
+    </select>
   </div>
-    
-  <input type="submit" class="btn btn-primary" ng-click="saveSchedule()" value="Save">
+<div class="form-group">
+    <label for="startDate">Start Date:</label>
+   <input type="text" id="startDate" name="startDate" ng-model="schedule.startDate"
+       placeholder="yyyy-MM-dd" required />
+ <span style="color:red" ng-show="loginForm.startDate.$dirty && loginForm.startDate.$invalid && loginForm.startDate.$error.required">
+      Start Date is required
+      </span>
+</div>
+
+<div class="form-group">
+    <label for="endDate">End Date:</label>
+   <input type="text" id="endDate" name="endDate" ng-model="schedule.endDate"
+       placeholder="yyyy-MM-dd" required />
+   <span style="color:red" ng-show="loginForm.endDate.$dirty && loginForm.endDate.$invalid && loginForm.endDate.$error.required">
+      End Date is required
+      </span>
+</div>
+  <input type="text" class="btn btn-primary" ng-click="saveSchedule()" value="Save" ng-disabled="loginForm.$invalid ">
 </form>
+

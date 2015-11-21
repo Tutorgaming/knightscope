@@ -15,4 +15,8 @@ angular.module('clientApp')
       $location.path('/schedule');
     });
   };
+  
+    $scope.checkValid = function() {};
+    
+    
 });

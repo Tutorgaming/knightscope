@@ -12,22 +12,22 @@ var ScheduleSchema = new mongoose.Schema({
     },
     location: {
         type: String,
-        required: false
+        required: true
     },
     
     purpose: {
         type: String,
-        required: false
+        required: true
     },
     
     startDate: {
-        type: Date,
-        required: false
+        type: String,
+        required: true
     },
     
     endDate: {
-        type: Date,
-        required: false
+        type: String,
+        required: true
     }
     
 });
