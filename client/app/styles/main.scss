@@ -67,6 +67,28 @@ body {
   }
 }
 
+//icon formatting
+.icon-big {
+    font-size: 350%;
+    display: block;
+    color: #5eb9ea;
+    margin-bottom: 10px;
+}
+
+.icon-small {
+    display: inline-block;
+    width: 30px;
+    text-align: right;
+    color: #5eb9ea;
+    font-size: 120%;
+    margin-right: 5px;
+    
+    /*secrets to align text and icons*/
+    line-height: 120%;
+    vertical-align: middle;
+    margin-top: -5px;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
@@ -89,3 +111,4 @@ body {
     border-bottom: 0;
   }
 }
+

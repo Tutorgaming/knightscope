@@ -4,12 +4,16 @@
   <thead>
     <th>Employee Name</th>
     <th>Machine</th>
+    <th>Location</th>
+      <th>Purpose</th>
     <th>Operations</th>
   </thead>
   <tbody>
     <tr ng-repeat="schedule in schedules">
       <td><a ng-href="/#/schedule/{{ schedule._id }}">{{ schedule.name }}</a></td>
       <td>{{ schedule.machine }}</td>
+      <td>{{ schedule.location }}</td>
+      <td>{{ schedule.purpose }}</td>
       <td>
         <div class="button-group">
           <a ng-href="/#/schedule/{{ schedule._id }}/edit" class="btn btn-default">

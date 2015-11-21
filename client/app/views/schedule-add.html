@@ -5,7 +5,16 @@
   </div>
   <div class="form-group">
     <label for="machine" class="control-label">Machine</label>
-    <input type="text" ng-model="schedule.machine" class="form-control" id="machine" placeholder="Enter the Machine name">
+    <input type="text" ng-model="schedule.machine" class="form-control" id="machine" placeholder="Enter the machine name">
   </div>
+  <div class="form-group">
+    <label for="location" class="control-label">Location</label>
+    <input type="text" ng-model="schedule.location" class="form-control" id="location" placeholder="Enter the location">
+  </div>
+  <div class="form-group">
+    <label for="purpose" class="control-label">Purpose</label>
+    <input type="text" ng-model="schedule.purpose" class="form-control" id="purpose" placeholder="Enter the purpose">
+  </div>
+    
   <input type="submit" class="btn btn-primary" ng-click="saveSchedule()" value="Save">
 </form>

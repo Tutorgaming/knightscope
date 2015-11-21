@@ -30,7 +30,7 @@ angular
       })
     .when('/timeline', {
         templateUrl: 'views/timeline.html',
-        //controller: 'ScheduleCtrl'
+        controller: 'ScheduleCtrl'
         //controllerAs: 'schedule'
       })
       .when('/create/schedule', {
