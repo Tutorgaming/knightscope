@@ -27,13 +27,18 @@ angular.module('clientApp')
   $scope.saveSchedule = function() {
       
       var currDate = new Date();
-      
+   //   console.log($scope.entries.length);
       if(new Date($scope.schedule.startDate) <= currDate) {
           $scope.errorMessage = 'Start Date is expired';
           return false;
       }
-    
-    if($scope.schedule.startDate <= $scope.schedule.endDate){
+      
+      
+      if($scope.entries.length === null || $scope.entries.length === 0 || $scope.entries.length === undefined){
+       //   console.log($scope.entries.length);
+          $scope.success=true;
+      }
+      else if($scope.schedule.startDate <= $scope.schedule.endDate){
         
         for(var i = 0; i < $scope.entries.length; i++){
             if($scope.schedule.machine === $scope.entries[i].machine){

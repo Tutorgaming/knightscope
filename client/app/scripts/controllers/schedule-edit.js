@@ -45,17 +45,9 @@ Schedule.one($routeParams.id).get().then(function(schedule) {
             if($scope.schedule.machine === $scope.entries[i].machine){
                 
            //     console.log($scope.entries[i].machine);
-                if($routeParams.id === $scope.entries[i]._id){
-            //        console.log($scope.entries[i]._id);
-                if($scope.schedule.startDate === $scope.entries[i].startDate || $scope.schedule.endDate === $scope.entries[i].endDate){
-                    console.log($scope.entries[i]._id);
-                    $scope.success=true;
-                }
-                }
-                else if($scope.schedule.startDate > $scope.entries[i].endDate || $scope.schedule.endDate < $scope.entries[i].startDate ){
+                
+                if($scope.schedule.startDate > $scope.entries[i].endDate || $scope.schedule.endDate < $scope.entries[i].startDate ){
                    $scope.success=true;
-                    
-                    
                 }
                 else{
                     $scope.errorMessage = 'Entry for this machine exists within this time period!';
@@ -63,10 +55,6 @@ Schedule.one($routeParams.id).get().then(function(schedule) {
                 }
                 
                 
-                
-            }
-            else{
-                $scope.errorMessage = 'Machine name cannot be changed! Please create another schedule for different machine.';
             }
         }
         
