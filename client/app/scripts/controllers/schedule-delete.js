@@ -1,3 +1,10 @@
+/*
+
+Deletes the machine schedule from the backend
+
+*/
+
+
 'use strict';
 
 /**

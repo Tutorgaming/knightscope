@@ -1,3 +1,13 @@
+/*
+
+This is the ngROUTE page
+
+This controller helps navigation.
+
+binds controller and view together.
+
+*/
+
 'use strict';
 
 /**

@@ -1,5 +1,7 @@
+<!-- Delete view : This controller deletes the entry for the machine schedule asking the user to either Delete / Cancel -->
+
 <form role="form">
-  <p>Are you sure you wish to delete the schedule for {{ schedule.name }} &#45; {{ schedule.machine }}?</p>
+  <p>Are you sure you wish to delete the schedule for {{ schedule.name }} &#45; {{ schedule.machine }} for time period {{ schedule.startDate }} to {{ schedule.endDate }} ?</p>
   <div class="form-group">
     <input type="submit" class="btn btn-danger" ng-click="deleteSchedule()" value="Yes">
     <button ng-click="back()" type="button" class="btn btn-default">No</button>

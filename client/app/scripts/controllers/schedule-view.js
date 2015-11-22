@@ -1,3 +1,9 @@
+/*
+
+Edit controller gets the data for selected machine from the backend
+
+*/
+
 'use strict';
 
 /**

@@ -1,3 +1,7 @@
+//this includes the Schedule Schema used when making HTTP calls
+
+//all fields are set to be required while posting and updating the data 
+
 var mongoose = require('mongoose');
 
 // Create the ScheduleSchema.

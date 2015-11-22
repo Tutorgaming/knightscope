@@ -1,3 +1,7 @@
+<!-- Add view : This controller view includes various fields to create machine schedule for example - Name, machine name, location, purpose, start date & end date. 
+
+While submitting make sure - Same machine cannot be scheduled for a different time period. Make sure they don’t overlap. -->
+
 <h4><span style="color:red">All fields are required!</span></h4>
 <form role="form" name="loginForm" novalidate>
   <div class="form-group">
@@ -40,14 +44,14 @@
 <div class="form-group">
     <label for="startDate">Start Date:</label>
    <input type="text" ng-pattern="/^(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])\/(199\d)|([2-9]\d{3})$/" id="startDate" name="startDate" ng-model="schedule.startDate"
-       placeholder="MM-dd-yyyy" required />
+       placeholder="MM/dd/yyyy" required />
 <span ng-show="loginForm.startDate.$error.required">Start Date Required!</span>
     <span ng-show="loginForm.startDate.$error.pattern">Incorrect Format, should be MM/DD/YYYY</span>
 </div>
 
 <div class="form-group">
     <label for="endDate">End Date:</label>
-   <input type="text" ng-pattern="/^(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])\/(199\d)|([2-9]\d{3})$/" id="endDate" name="endDate" ng-model="schedule.endDate" placeholder="MM-dd-yyyy" required />
+   <input type="text" ng-pattern="/^(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])\/(199\d)|([2-9]\d{3})$/" id="endDate" name="endDate" ng-model="schedule.endDate" placeholder="MM/dd/yyyy" required />
    <span ng-show="loginForm.endDate.$error.required">End Date Required!</span>
     <span ng-show="loginForm.endDate.$error.pattern">Incorrect Format, should be MM/DD/YYYY</span>
     <span>{{ errorMessage }}</span>

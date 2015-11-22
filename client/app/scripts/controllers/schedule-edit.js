@@ -1,3 +1,10 @@
+/*
+
+Similar logic as create schedule controller. Instead creating a new schedule edits the selected machine only.
+
+*/
+
+
 'use strict';
 
 /**
@@ -36,16 +43,35 @@ Schedule.one($routeParams.id).get().then(function(schedule) {
         
         for(var i = 0; i < $scope.entries.length; i++){
             if($scope.schedule.machine === $scope.entries[i].machine){
+                
            //     console.log($scope.entries[i].machine);
-                if($scope.schedule.startDate > $scope.entries[i].endDate || $scope.schedule.endDate < $scope.entries[i].startDate ){
+                if($routeParams.id === $scope.entries[i]._id){
+            //        console.log($scope.entries[i]._id);
+                if($scope.schedule.startDate === $scope.entries[i].startDate || $scope.schedule.endDate === $scope.entries[i].endDate){
+                    console.log($scope.entries[i]._id);
+                    $scope.success=true;
+                }
+                }
+                else if($scope.schedule.startDate > $scope.entries[i].endDate || $scope.schedule.endDate < $scope.entries[i].startDate ){
                    $scope.success=true;
+                    
+                    
                 }
                 else{
-                    console.log('Rejected');
+                    $scope.errorMessage = 'Entry for this machine exists within this time period!';
                     $scope.success=false;
                 }
+                
+                
+                
+            }
+            else{
+                $scope.errorMessage = 'Machine name cannot be changed! Please create another schedule for different machine.';
             }
         }
+        
+        
+    
         
         if($scope.success===true){
             $scope.schedule.save().then(function() {

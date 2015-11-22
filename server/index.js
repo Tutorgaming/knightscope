@@ -1,3 +1,7 @@
+//installs express, mongoose
+
+//connects with the moongoose and runs as a server
+
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');

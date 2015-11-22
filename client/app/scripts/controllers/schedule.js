@@ -1,3 +1,9 @@
+/*
+
+Gets data from the backend and delete it on the frontend
+
+*/
+
 'use strict';
 
 /**

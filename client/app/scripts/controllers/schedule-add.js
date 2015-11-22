@@ -1,3 +1,11 @@
+/* Add controller: This controller includes various fields CHECKS to create machine schedule for example - Name, machine name, location, purpose, start date & end date. 
+
+Validation is done for each field in form.
+
+While submitting make sure - Same machine cannot be scheduled for a different time period. Make sure they don’t overlap. */
+
+
+
 'use strict';
 
 /**
@@ -34,7 +42,7 @@ angular.module('clientApp')
                    $scope.success=true;
                 }
                 else{
-                    console.log('Rejected');
+                    $scope.errorMessage = 'Entry for this machine exists within this time period!';
                     $scope.success=false;
                 }
             }
