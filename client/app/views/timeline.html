@@ -5,13 +5,17 @@
     
     <input ng-model="query" type="text" placeholder="Filter by" autofocus>
     
-    <ul class="timeline" ng-repeat="schedule in schedules | filter:query | orderBy: 'name'" >
+    <ul class="timeline" ng-repeat="schedule in schedules | filter:query | orderBy: 'date'" >
         <li>
             <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
             <div class="timeline-panel">
                 <div class="timeline-heading">
                     <h4 class="timeline-title">{{ schedule.name }}</h4> 
-                    <p>{{ schedule. machine }}</p>
+                    <p>Machine : {{ schedule.machine }}</p>
+                    <p>Location : {{ schedule.location }}</p>
+                    <p>Purpose : {{ schedule.purpose }}</p>
+                    <p>Start Date : {{ schedule.startDate }}</p>
+                    <p>End Date : {{ schedule.endDate }}</p>
                 </div>
             </div>
         </li>

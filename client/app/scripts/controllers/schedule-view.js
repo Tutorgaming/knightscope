@@ -15,4 +15,5 @@ angular.module('clientApp')
     ) {
     $scope.viewSchedule = true;
     $scope.schedule = Schedule.one($routeParams.id).get().$object;
+    console.log($scope.schedule);
 });

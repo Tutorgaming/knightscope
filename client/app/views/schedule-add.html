@@ -3,8 +3,8 @@
   <div class="form-group">
     <label for="name" class="control-label">Name</label>
     <input type="text" name="name" ng-model="schedule.name" required>
-  <span style="color:red" ng-show="loginForm.name.$dirty && loginForm.name.$invalid && loginForm.name.$error.required">
-      Username is required
+  <span ng-show="loginForm.name.$dirty && loginForm.name.$invalid && loginForm.name.$error.required">
+      Name Required!
       </span>
     </div>
   <div class="form-group">
@@ -39,20 +39,18 @@
   </div>
 <div class="form-group">
     <label for="startDate">Start Date:</label>
-   <input type="text" id="startDate" name="startDate" ng-model="schedule.startDate"
-       placeholder="yyyy-MM-dd" required />
- <span style="color:red" ng-show="loginForm.startDate.$dirty && loginForm.startDate.$invalid && loginForm.startDate.$error.required">
-      Start Date is required
-      </span>
+   <input type="text" ng-pattern="/^(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])\/(199\d)|([2-9]\d{3})$/" id="startDate" name="startDate" ng-model="schedule.startDate"
+       placeholder="MM-dd-yyyy" required />
+<span ng-show="loginForm.startDate.$error.required">Start Date Required!</span>
+    <span ng-show="loginForm.startDate.$error.pattern">Incorrect Format, should be MM/DD/YYYY</span>
 </div>
 
 <div class="form-group">
     <label for="endDate">End Date:</label>
-   <input type="text" id="endDate" name="endDate" ng-model="schedule.endDate"
-       placeholder="yyyy-MM-dd" required />
-   <span style="color:red" ng-show="loginForm.endDate.$dirty && loginForm.endDate.$invalid && loginForm.endDate.$error.required">
-      End Date is required
-      </span>
+   <input type="text" ng-pattern="/^(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])\/(199\d)|([2-9]\d{3})$/" id="endDate" name="endDate" ng-model="schedule.endDate" placeholder="MM-dd-yyyy" required />
+   <span ng-show="loginForm.endDate.$error.required">End Date Required!</span>
+    <span ng-show="loginForm.endDate.$error.pattern">Incorrect Format, should be MM/DD/YYYY</span>
+    <span>{{ errorMessage }}</span>
 </div>
   <input type="text" class="btn btn-primary" ng-click="saveSchedule()" value="Save" ng-disabled="loginForm.$invalid ">
 </form>
